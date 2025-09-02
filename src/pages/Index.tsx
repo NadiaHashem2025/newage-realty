@@ -1,12 +1,39 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useEffect } from "react";
+import Header from "../components/Header";
+import AboutSection from "../components/AboutSection";
+import ReviewsSection from "../components/ReviewsSection";
+import GuidesSection from "../components/GuidesSection";
+import ContactSection from "../components/ContactSection";
 
 const Index = () => {
+  useEffect(() => {
+    // Widget Tracker Code
+    (function(w: any, i: string, d: Document, g: string, e: any, t: any) {
+      w["WidgetTrackerObject"] = g;
+      (w[g] = w[g] || function() {
+        (w[g].q = w[g].q || []).push(arguments);
+      }), (w[g].ds = 1 * new Date().getTime());
+      e = "script";
+      t = d.createElement(e);
+      e = d.getElementsByTagName(e)[0];
+      t.async = true;
+      t.src = i;
+      e.parentNode?.insertBefore(t, e);
+    })(window, "https://widgetbe.com/agent", document, "widgetTracker", "", "");
+    
+    (window as any).widgetTracker("create", "WT-NSXCSRHG");
+    (window as any).widgetTracker("send", "pageview");
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <Header />
+      <main>
+        <AboutSection />
+        <ReviewsSection />
+        <GuidesSection />
+        <ContactSection />
+      </main>
     </div>
   );
 };
